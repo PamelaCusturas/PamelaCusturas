@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Personalizações - Pamela Costura</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+        body {
+            background-color: #ffe6f2;
+            color: #333;
+            text-align: center;
+        }
+        header {
+            background-color: #ff66b2;
+            padding: 20px;
+            text-align: center;
+            font-size: 28px;
+            font-weight: bold;
+            color: white;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            left: 0;
+            z-index: 1000;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+        }
+        .container {
+            max-width: 800px;
+            margin: 100px auto 40px;
+            padding: 20px;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+        }
+        input, textarea, select {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            font-size: 16px;
+        }
+        button {
+            padding: 10px;
+            background: #ff3385;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+        button:hover {
+            background: #cc0052;
+        }
+        footer {
+            background-color: #ff66b2;
+            color: white;
+            text-align: center;
+            padding: 15px;
+            margin-top: 20px;
+            font-size: 16px;
+        }
+    </style>
+    <script>
+        function enviarPersonalizacao() {
+            let nome = document.getElementById("nome").value;
+            let tamanho = document.getElementById("tamanho").value;
+            let tipoRoupa = document.getElementById("tipoRoupa").value;
+            let detalhes = document.getElementById("detalhes").value;
+            
+            let mensagem = `Olá, meu nome é ${nome}. Gostaria de personalizar uma peça do tipo ${tipoRoupa} com tamanho ${tamanho}cm. Detalhes: ${detalhes}.`;
+            let link = `https://wa.me/5588997434597?text=${encodeURIComponent(mensagem)}`;
+            window.open(link, '_blank');
+        }
+    </script>
+</head>
+<body>
+    <header>Personalizações - Pamela Costura</header>
+    
+    <div class="container">
+        <h2>Personalize sua Peça</h2>
+        <p>Escolha os detalhes da sua peça e envie sua solicitação pelo WhatsApp.</p>
+        <form onsubmit="event.preventDefault(); enviarPersonalizacao();">
+            <input type="text" id="nome" placeholder="Seu Nome" required>
+            <select id="tipoRoupa">
+                <option value="Vestido">Vestido</option>
+                <option value="Camisa">Camisa</option>
+                <option value="Calça">Calça</option>
+                <option value="Saia">Saia</option>
+            </select>
+            <input type="text" id="tamanho" placeholder="Tamanho em cm" required>
+            <textarea id="detalhes" rows="4" placeholder="Descreva sua personalização" required></textarea>
+            <button type="submit">Enviar para WhatsApp</button>
+        </form>
+    </div>
+    
+    <footer>&copy; 2025 Pamela Costura | Todos os direitos reservados.</footer>
+</body>
+</html>
